@@ -1,0 +1,120 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jared's GitHub Microservices</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css"
+    />
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css" />
+  </head>
+  <body>
+    <header>
+      <h1>A lil' GitHub Microservice</h1>
+      <nav>
+        <a href="#api">API</a> /
+        <a
+          href="https://github.com/jaredpalmer/github-repos"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Source</a
+        >
+        /
+        <a
+          href="https://github.com/jaredpalmer/github-repos/blob/master/license.md"
+          target="_blank"
+          rel="noreferrer noopener"
+          >MIT License</a
+        >
+      </nav>
+    </header>
+
+    <h2 id="#api">API Resources</h2>
+    <h3><code>GET /api/repos</code></h3>
+    <p>Get a list of my most popular GitHub projects. Updates every 2 hours.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>name</code></td>
+          <td><code>string</code></td>
+          <td>Repository name</td>
+          <td><code>formik</code></td>
+        </tr>
+        <tr>
+          <td><code>owner</code></td>
+          <td><code>string</code></td>
+          <td>Repository owner</td>
+          <td><code>jaredpalmer</code></td>
+        </tr>
+        <tr>
+          <td><code>description</code></td>
+          <td><code>string</code></td>
+          <td>Repository description</td>
+          <td><code>Build forms in React, without the tears "</td>
+        </tr>
+        <tr>
+          <td><code>url</code></td>
+          <td><code>string</code></td>
+          <td>Repository URL</td>
+          <td><code>https://github.com/jaredpalmer/formik</code></td>
+        </tr>
+        <tr>
+          <td><code>stars</code></td>
+          <td><code>number</code></td>
+          <td>GitHub star count</td>
+          <td>23208</td>
+        </tr>
+        <tr>
+          <td><code>languages</code></td>
+          <td><code>Record&lt;string, number&gt;</code></td>
+          <td>
+            Programming languages in use + line count.
+          </td>
+          <td><code>{ JavaScript: 121162, CSS: 530, }</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <p><a href="/api/repos">Try it Now 🔗</a></p>
+    <p><strong>Example Response:</strong> </p>
+
+    <pre><code>
+[
+  {
+    name: "formik",
+    owner: "formik",
+    description: "Build forms in React, without the tears 😭 ",
+    url: "https://github.com/formik/formik",
+    stars: 23208,
+    languages: {
+      TypeScript: 177029,
+      JavaScript: 3190,
+    },
+  },
+  {
+    name: "razzle",
+    owner: "jaredpalmer",
+    description: "✨ Create server-rendered universal JavaScript applications with no configuration",
+    url: "https://github.com/jaredpalmer/razzle",
+    stars: 9200,
+    languages: {
+      JavaScript: 121162,
+      CSS: 530,
+    },
+  },
+  // ..
+]
+      </code>
+    </pre>
+  </body>
+</html>
