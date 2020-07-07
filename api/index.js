@@ -1,4 +1,3 @@
-const { json } = require('micro');
 const fetch = require('node-fetch');
 const ms = require('ms');
 
@@ -162,7 +161,7 @@ module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
 
   if (req.method === 'POST') {
-    const requestedRepoNames = await json(req);
+    const requestedRepoNames = await res.json(req);
 
     const requestedRepos = [];
     requestedRepoNames.forEach(({ name, owner }) => {
