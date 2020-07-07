@@ -147,12 +147,7 @@ async function cache() {
   return repos;
 }
 
-// micro server
 module.exports = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
   const result = await cache();
   return res.json(result);
-
-  return;
 };

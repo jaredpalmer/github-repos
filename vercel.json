@@ -1,5 +1,20 @@
 {
   "version": 2,
   "project": "jp-repos",
-  "alias": ["jp-repos"]
+  "alias": ["jp-repos"],
+  "headers": [
+    {
+      "source": "/api/repos",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=7200"
+        }
+      ]
+    }
+  ]
 }
