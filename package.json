@@ -2,9 +2,6 @@
   "name": "github-repos",
   "private": true,
   "version": "2.1.2",
-  "scripts": {
-    "dev": "now dev"
-  },
   "dependencies": {
     "ms": "2.1.1",
     "node-fetch": "1.7.3"

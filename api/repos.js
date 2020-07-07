@@ -144,37 +144,15 @@ async function cache() {
     ({ stars: firstStars }, { stars: secondStars }) => secondStars - firstStars
   );
 
-  log(
-    `Re-built projects cache.\nTotal: ${
-      cachedRepos.length
-    } public projects.\nElapsed: ${new Date() - start}ms`
-  );
+  return repos;
 }
-
-cache();
-setInterval(cache, ms('15m'));
 
 // micro server
 module.exports = async (req, res) => {
-  // @todo restrict this to palmer domains?
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  const result = await cache();
+  return res.json(result);
 
-  if (req.method === 'POST') {
-    const requestedRepoNames = await res.json(req);
-
-    const requestedRepos = [];
-    requestedRepoNames.forEach(({ name, owner }) => {
-      requestedRepos.push(
-        cachedRepos.find(
-          ({ name: cachedName, owner: cachedOwner }) =>
-            name === cachedName && owner === cachedOwner
-        )
-      );
-    });
-
-    return requestedRepos;
-  } else {
-    return cachedRepos;
-  }
+  return;
 };
