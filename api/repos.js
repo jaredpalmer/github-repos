@@ -149,5 +149,7 @@ async function cache() {
 
 module.exports = async (req, res) => {
   const result = await cache();
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
   return res.json(result);
 };
