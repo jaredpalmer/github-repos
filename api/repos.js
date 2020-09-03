@@ -15,7 +15,7 @@ const owners = [
     ],
   },
   {
-    name: 'formik',
+    name: 'formium',
     requiredRepos: ['formik', 'tsdx', 'typescript'],
   },
   {
